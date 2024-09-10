@@ -1,34 +1,46 @@
-fetch('https://valorant-api.com/v1/agents')
-    .then((response) => response.json())
-    .then((response) => {
-        const agents = response.data;
-        let cardAgents = '';
-        agents.forEach((agents) => {
-            if (agents.isPlayableCharacter === true) {
-                cardAgents += showCards(agents);
-            }
+(function getAgents() {
+    fetch('https://valorant-api.com/v1/agents')
+        .then((response) => response.json())
+        .then((response) => {
+            const agents = response.data;
+            updateAgents(agents);
         })
-        const cards = document.querySelector('.row');
-        cards.innerHTML = cardAgents;
+})();
 
+function updateAgents(allAgents) {
+    let cardAgents = '';
+    allAgents.forEach((agents) => {
+        if (agents.isPlayableCharacter === true) {
+            cardAgents += showCards(agents);
+        };
+    });
+    const cards = document.querySelector('.row');
+    cards.innerHTML = cardAgents;
+};
 
-        document.body.addEventListener('click', async function(e) {
-            if(e.target.classList.contains('btn-detail-agent')) {
-                await fetch('https://valorant-api.com/v1/agents/' + e.target.getAttribute('data-agent'))
-                .then((response) => response.json())
-                .then((response) => {
-                    const agent = response.data;
-                    const modalAgent = document.querySelector('.modal-agent')
-                    console.log(agent)
-                    modalAgent.innerHTML = showModals(agent);
-                })
-            }
+//event binding
+document.body.addEventListener('click', function (e) {
+    if (e.target.classList.contains('btn-detail-agent')) {
+        getModalAgent(e);
+    }
+})
+
+function getModalAgent(e) {
+    return fetch('https://valorant-api.com/v1/agents/' + e.target.getAttribute('data-agent'))
+        .then((response) => response.json())
+        .then((response) => {
+            const agent = response.data;
+            updateModalAgent(agent);
         })
-        
-    })
+}
 
-    function showCards(agents) {
-        return `<div class="col mb-4">
+function updateModalAgent(agent) {
+    const modalAgent = document.querySelector('.modal-agent')
+    modalAgent.innerHTML = showModals(agent);
+}
+
+function showCards(agents) {
+    return `<div class="col mb-4">
                 <div class="card" style="width: 18rem;">
                     <img src="${agents.displayIcon}" class="card-img-top" alt="">
                     <div class="card-body">
@@ -38,10 +50,10 @@ fetch('https://valorant-api.com/v1/agents')
                     </div>
                 </div>
             </div>`
-    }
+}
 
-    function showModals(agent) {
-        return `
+function showModals(agent) {
+    return `
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -78,4 +90,4 @@ fetch('https://valorant-api.com/v1/agents')
                 </div>
             </div>
         `
-    }
+}
