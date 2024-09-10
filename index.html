@@ -15,23 +15,43 @@
 
 <body>
     <div class="container">
-        <h1 class="judul mt-5">Valorant Guide</h1>
-        <div class="row mt-5">
-            <div class="col mb-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+                    type="button" role="tab" aria-controls="nav-home" aria-selected="true">Agent</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+                    type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Weapon</button>
+                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
+                    type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Skins</button>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"
+                tabindex="0">
+                <h1 class="judul-section mt-5">Valorant Agent</h1>
+                <div class="row mt-5">
+                    <div class="col mb-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="" class="card-img-top" alt="">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                                    the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                Weapon</div>
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+                Skins</div>
         </div>
 
         <!-- Modal -->
-        <div class="modal modal-agent fade" id="agentsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal modal-agent fade" id="agentsModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -45,19 +65,17 @@
                                 </div>
                                 <div class="col-md">
                                     <ul class="list-group">
-                                        <li class="list-group-item">An item</li>
-                                        <li class="list-group-item">A second item</li>
-                                        <li class="list-group-item">A third item</li>
-                                        <li class="list-group-item">A fourth item</li>
-                                        <li class="list-group-item">And a fifth one</li>
+                                        <li class="list-group-item">Loading..</li>
+                                        <li class="list-group-item">Loading..</li>
+                                        <li class="list-group-item">Loading..</li>
+                                        <li class="list-group-item">Loading..</li>
                                     </ul>
                                     <br>
                                     <ul class="list-group list-group-horizontal">
-                                        <li class="list-group-item flex-fill">An item</li>
-                                        <li class="list-group-item flex-fill">A second item</li>
-                                        <li class="list-group-item flex-fill">An item</li>
-                                        <li class="list-group-item flex-fill">A second item</li>
-                                        <li class="list-group-item flex-fill">A second item</li>
+                                        <li class="list-group-item flex-fill">Loading..</li>
+                                        <li class="list-group-item flex-fill">Loading..</li>
+                                        <li class="list-group-item flex-fill">Loading..</li>
+                                        <li class="list-group-item flex-fill">Loading..</li>
                                     </ul>
                                 </div>
                             </div>
