@@ -56,7 +56,7 @@ fetch('https://valorant-api.com/v1/agents')
                                 <div class="col-md">
                                     <ul class="list-group">
                                         <li class="list-group-item"><h4>${agent.displayName}</h4></li>
-                                        <li class="list-group-item"><strong>Role: </strong>${agent.role.displayName}</li>
+                                        <li class="list-group-item"><strong>Role:  </strong><img src="${agent.role.displayIcon}" style="width: 25px; height: 25px; background-color: grey" class="rounded-circle"> ${agent.role.displayName}</li>
                                         <li class="list-group-item"><strong>Codename: </strong>${agent.developerName}</li>
                                         <li class="list-group-item"><strong>Description: </strong>${agent.description}</li>
                                     </ul>
