@@ -11,10 +11,10 @@ function updateAgents(allAgents) {
     let cardAgents = '';
     allAgents.forEach((agents) => {
         if (agents.isPlayableCharacter === true) {
-            cardAgents += showCards(agents);
+            cardAgents += showCardsAgent(agents);
         };
     });
-    const cards = document.querySelector('.row');
+    const cards = document.querySelector('.row-agents');
     cards.innerHTML = cardAgents;
 };
 
@@ -29,17 +29,18 @@ function getModalAgent(e) {
     return fetch('https://valorant-api.com/v1/agents/' + e.target.getAttribute('data-agent'))
         .then((response) => response.json())
         .then((response) => {
+            console.log(response)
             const agent = response.data;
             updateModalAgent(agent);
         })
 }
 
 function updateModalAgent(agent) {
-    const modalAgent = document.querySelector('.modal-agent')
-    modalAgent.innerHTML = showModals(agent);
+    const modalAgent = document.querySelector('#agentsModal')
+    modalAgent.innerHTML = showModalsAgent(agent);
 }
 
-function showCards(agents) {
+function showCardsAgent(agents) {
     return `<div class="col mb-4">
                 <div class="card" style="width: 18rem;">
                     <img src="${agents.displayIcon}" class="card-img-top" alt="">
@@ -52,7 +53,7 @@ function showCards(agents) {
             </div>`
 }
 
-function showModals(agent) {
+function showModalsAgent(agent) {
     return `
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content">
